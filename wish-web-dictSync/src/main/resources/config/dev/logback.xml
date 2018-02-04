@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--变量声明-->
+	<property name="app.name" value="wish_web_dictSync"/>
+	<!--<property name="log.base" value="/data/logs/ms" />-->
+	<property name="log.base" value="c://logs//wish_web_dictSync//dev" />
+
+	<property name="log.name" value="wish_web_dictSync" />
+
+	<contextName>${app.name}</contextName>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoder的默认实现类是ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.foundation" level="INFO" >
+		<appender-ref ref="STDOUT"/>
+	</logger>
+	<!-- 用户登录拦截器-->
+
+	<!--default_log-->
+	<appender name="default_log"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.base}/${log.name}.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</layout>
+	</appender>
+	<logger name="com.foundation" level="DEBUG" >
+		<appender-ref ref="default_log" />
+	</logger>
+	<!--default_log end-->
+
+
+	<!--biz log-->
+	<!--<appender name="biz_log"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.base}/biz_log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</layout>
+	</appender>
+	<logger name="com.foundation.biz" level="info" additivity="false" >
+		<appender-ref ref="biz_log" />
+	</logger>-->
+	<!--biz log end-->
+
+	<!--service log-->
+<!--	<appender name="service_log"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.base}/service_log.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</layout>
+	</appender>
+	<logger name="com.foundation.service" level="info" additivity="false" >
+		<appender-ref ref="service_log" />
+	</logger>-->
+	<!--service log end-->
+
+	<!--其他日志包结构符合基本的交由root的appender打印输出   -->
+	<logger name="org.apache.catalina" level="WARN" />
+	<logger name="org.apache" level="WARN" />
+	<logger name="com.google.code" level="ERROR" />
+	<logger name="org.springframework" level="WARN" />
+
+	<logger name="com.ibatis.mybatis" level="DEBUG" />
+<!--	<logger name="com.ibatis.common.jdbc.SimpleDataSource" level="DEBUG" />
+	<logger name="com.ibatis.common.jdbc.ScriptRunner" level="DEBUG" />
+	<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" />
+	<logger name="java.sql.Connection" level="DEBUG" />
+	<logger name="java.sql.Statement" level="DEBUG" />
+	<logger name="java.sql.PreparedStatement" level="DEBUG" />-->
+
+	<!--<root level="INFO">
+		<appender-ref ref="default_log" />
+	</root>-->
+</configuration>

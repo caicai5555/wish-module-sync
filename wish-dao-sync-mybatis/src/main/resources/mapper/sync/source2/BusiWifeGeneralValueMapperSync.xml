@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source2.BusiWifeGeneralValueTwoDaoSync" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiWifeGeneralValue" >
+    <id column="wife_general_value_id" property="wifeGeneralValueId"  />
+    <result column="wife_general_situation_id" property="wifeGeneralSituationId"  />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId"  />
+    <result column="anemia" property="anemia"  />
+    <result column="high_blood" property="highBlood"  />
+    <result column="heart_disease" property="heartDisease"  />
+    <result column="diabetes" property="diabetes"  />
+    <result column="epilepsy" property="epilepsy"  />
+    <result column="thyropathy" property="thyropathy"  />
+    <result column="nephritis" property="nephritis"  />
+    <result column="tumor" property="tumor"  />
+    <result column="tuberculosis" property="tuberculosis"  />
+    <result column="hepatitis" property="hepatitis"  />
+    <result column="gonorrhea" property="gonorrhea"  />
+    <result column="syphilis" property="syphilis"  />
+    <result column="chlamydia" property="chlamydia"  />
+    <result column="disorders" property="disorders"  />
+    <result column="uterus_inflammation" property="uterusInflammation"  />
+    <result column="infertility" property="infertility"  />
+    <result column="vaginitis" property="vaginitis"  />
+    <result column="cervical" property="cervical"  />
+    <result column="endometriosis" property="endometriosis"  />
+    <result column="uterine_fibroids" property="uterineFibroids"  />
+    <result column="ovarian_cyst" property="ovarianCyst"  />
+    <result column="ovary_syndrome" property="ovarySyndrome"  />
+    <result column="rubella" property="rubella"  />
+    <result column="hepatitis_b" property="hepatitisB"  />
+    <result column="synthetic" property="synthetic"  />
+    <result column="implants" property="implants"  />
+    <result column="contraceptives" property="contraceptives"  />
+    <result column="condoms" property="condoms"  />
+    <result column="external_use" property="externalUse"  />
+    <result column="contraception" property="contraception"  />
+    <result column="stillbirth" property="stillbirth"  />
+    <result column="abortion" property="abortion"  />
+    <result column="artificial_abortion" property="artificialAbortion"  />
+    <result column="pre_diabetes" property="preDiabetes"  />
+    <result column="pre_high_blood" property="preHighBlood"  />
+    <result column="pre_bile" property="preBile"  />
+    <result column="pre_thyropathy" property="preThyropathy"  />
+    <result column="pre_anemia" property="preAnemia"  />
+    <result column="mediterranean_anemia" property="mediterraneanAnemia"  />
+    <result column="albino" property="albino"  />
+    <result column="g6pd" property="g6pd"  />
+    <result column="hemophilia" property="hemophilia"  />
+    <result column="congenital_heart_disease" property="congenitalHeartDisease"  />
+    <result column="syndrome" property="syndrome"  />
+    <result column="family_diabetes" property="familyDiabetes"  />
+    <result column="mental_low" property="mentalLow"  />
+    <result column="hear_low" property="hearLow"  />
+    <result column="vision_low" property="visionLow"  />
+    <result column="child_dead" property="childDead"  />
+    <result column="radiation" property="radiation"  />
+    <result column="high_temperature" property="highTemperature"  />
+    <result column="noise" property="noise"  />
+    <result column="organic_solvent" property="organicSolvent"  />
+    <result column="pet" property="pet"  />
+    <result column="vibration" property="vibration"  />
+    <result column="heavy_metal" property="heavyMetal"  />
+    <result column="pesticide" property="pesticide"  />
+    <result column="mildew_food" property="mildewFood"  />
+    <result column="isdelete" property="isdelete"  />
+    <result column="create_user_id" property="createUserId"  />
+    <result column="create_datetime" property="createDatetime"  />
+    <result column="update_user_id" property="updateUserId"  />
+    <result column="update_datetime" property="updateDatetime"  />
+    <result column="wife_cert_num" property="certNum"  />
+    <result column="wife_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.wife_general_value_id, a.wife_general_situation_id, a.pregnancy_archive_id, a.anemia, a.high_blood, a.
+    heart_disease, a.diabetes, a.epilepsy, a.thyropathy, a.nephritis, a.tumor, a.tuberculosis, a.hepatitis, a.
+    gonorrhea, a.syphilis, a.chlamydia, a.disorders, a.uterus_inflammation, a.infertility, a.vaginitis, a.
+    cervical, a.endometriosis, a.uterine_fibroids, a.ovarian_cyst, a.ovary_syndrome, a.rubella, a.
+    hepatitis_b, a.synthetic, a.implants, a.contraceptives, a.condoms, a.external_use, a.contraception, a.
+    stillbirth, a.abortion, a.artificial_abortion, a.pre_diabetes, a.pre_high_blood, a.pre_bile, a.
+    pre_thyropathy, a.pre_anemia, a.mediterranean_anemia, a.albino, a.g6pd, a.hemophilia, a.congenital_heart_disease, a.
+    syndrome, a.family_diabetes, a.mental_low, a.hear_low, a.vision_low, a.child_dead, a.radiation, a.
+    high_temperature, a.noise, a.organic_solvent, a.pet, a.vibration, a.heavy_metal, a.pesticide, a.
+    mildew_food, a.isdelete, a.create_user_id, a.create_datetime, a.update_user_id, a.update_datetime ,b.wife_cert_num ,b.wife_name ,b.zone_province_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_wife_general_value a,${sourceName}.busi_pregnancy_archive b
+    where  a.pregnancy_archive_id = b.pregnancy_archive_id AND a.wife_general_value_id = #{id,jdbcType=VARCHAR}
+  </select>
+</mapper>

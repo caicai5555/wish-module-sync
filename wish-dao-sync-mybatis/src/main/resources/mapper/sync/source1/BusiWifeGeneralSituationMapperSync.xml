@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source1.BusiWifeGeneralSituationOneDaoSync" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiWifeGeneralSituation" >
+    <id column="wife_general_situation_id" property="wifeGeneralSituationId" />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId" />
+    <result column="check_no" property="checkNo" />
+    <result column="inquiry_time" property="inquiryTime"  />
+    <result column="organization_id" property="organizationId" />
+    <result column="user_id" property="userId" />
+    <result column="iscomplete" property="iscomplete"  />
+    <result column="is_had_disease" property="isHadDisease"  />
+    <result column="suffered_disease" property="sufferedDisease" />
+    <result column="other_disease" property="otherDisease" />
+    <result column="is_birth_defect" property="isBirthDefect"  />
+    <result column="birth_defect" property="birthDefect" />
+    <result column="is_gynecopathy" property="isGynecopathy"  />
+    <result column="gynecopathy" property="gynecopathy" />
+    <result column="other_gynecopathy" property="otherGynecopathy" />
+    <result column="is_take_medicine" property="isTakeMedicine"  />
+    <result column="medicine_name" property="medicineName" />
+    <result column="is_vaccinated" property="isVaccinated"  />
+    <result column="vaccine" property="vaccine" />
+    <result column="other_vaccine" property="otherVaccine" />
+    <result column="is_contraception" property="isContraception"  />
+    <result column="contraception" property="contraception" />
+    <result column="other_contraception" property="otherContraception" />
+    <result column="contraception_continuous_time" property="contraceptionContinuousTime"  />
+    <result column="is_stop_contraception" property="isStopContraception"  />
+    <result column="stop_contraception_date" property="stopContraceptionDate" />
+    <result column="menarche_age" property="menarcheAge"  />
+    <result column="last_menstruation_date" property="lastMenstruationDate" />
+    <result column="is_regular_menstrual" property="isRegularMenstrual"  />
+    <result column="shortest_menstruation" property="shortestMenstruation"  />
+    <result column="longest_menstruation" property="longestMenstruation"  />
+    <result column="shortest_period" property="shortestPeriod"  />
+    <result column="longest_period" property="longestPeriod"  />
+    <result column="menstrual_volume" property="menstrualVolume"  />
+    <result column="dysmenorrhea" property="dysmenorrhea"  />
+    <result column="ever_pregnant" property="everPregnant"  />
+    <result column="pregnancy_number" property="pregnancyNumber"  />
+    <result column="live_birth_number" property="liveBirthNumber"  />
+    <result column="full_term_birth_number" property="fullTermBirthNumber"  />
+    <result column="premature_birth_number" property="prematureBirthNumber"  />
+    <result column="had_adverse_pregnancy_outcome" property="hadAdversePregnancyOutcome"  />
+    <result column="adverse_pregnancy_outcome" property="adversePregnancyOutcome" />
+    <result column="stillbirth_number" property="stillbirthNumber"  />
+    <result column="natural_abortion_number" property="naturalAbortionNumber"  />
+    <result column="artificial_abortion_number" property="artificialAbortionNumber"  />
+    <result column="other_adverse_pregnancy_outcome_number" property="otherAdversePregnancyOutcomeNumber"  />
+    <result column="had_defect_child" property="hadDefectChild"  />
+    <result column="defect_child_disease" property="defectChildDisease" />
+    <result column="disease_detail" property="diseaseDetail" />
+    <result column="child_number" property="childNumber"  />
+    <result column="child_health" property="childHealth"  />
+    <result column="child_disease" property="childDisease" />
+    <result column="is_close_relatives" property="isCloseRelatives"  />
+    <result column="couple_relationship" property="coupleRelationship" />
+    <result column="is_family_close_relative" property="isFamilyCloseRelative"  />
+    <result column="family_relationship" property="familyRelationship" />
+    <result column="is_family_disease" property="isFamilyDisease"  />
+    <result column="family_disease" property="familyDisease" />
+    <result column="other_family_disease" property="otherFamilyDisease" />
+    <result column="relationship" property="relationship" />
+    <result column="is_eat_meat_egg" property="isEatMeatEgg"  />
+    <result column="is_anorexia_vegetables" property="isAnorexiaVegetables"  />
+    <result column="is_eat_raw_meat" property="isEatRawMeat"  />
+    <result column="is_somke" property="isSomke"  />
+    <result column="daily_somke_number" property="dailySomkeNumber" />
+    <result column="is_passive_smoking" property="isPassiveSmoking"  />
+    <result column="daily_passive_smoking_minutes" property="dailyPassiveSmokingMinutes" />
+    <result column="is_drink" property="isDrink"  />
+    <result column="daily_drink_volumn" property="dailyDrinkVolumn" />
+    <result column="is_take_drug" property="isTakeDrug"  />
+    <result column="drug_name" property="drugName" />
+    <result column="is_halitosis" property="isHalitosis"  />
+    <result column="is_bleeding_gums" property="isBleedingGums"  />
+    <result column="is_harmful_environment" property="isHarmfulEnvironment"  />
+    <result column="harmful_environment" property="harmfulEnvironment" />
+    <result column="other_harmful_environment" property="otherHarmfulEnvironment" />
+    <result column="is_pressure" property="isPressure"  />
+    <result column="is_relationship_tense" property="isRelationshipTense"  />
+    <result column="is_economic_pressure" property="isEconomicPressure"  />
+    <result column="is_prepare_pregnancy" property="isPreparePregnancy"  />
+    <result column="pre_disease_value" property="preDiseaseValue" />
+    <result column="is_pre_disease" property="isPreDisease"  />
+    <result column="is_cutting_palace" property="isCuttingPalace"  />
+    <result column="cutting_palace_date_time" property="cuttingPalaceDateTime"  />
+    <result column="other_pre_disease_value" property="otherPreDiseaseValue" />
+    <result column="other" property="other" />
+    <result column="create_user_id" property="createUserId" />
+    <result column="create_datetime" property="createDatetime"  />
+    <result column="update_user_id" property="updateUserId" />
+    <result column="update_datetime" property="updateDatetime"  />
+    <result column="isdelete" property="isdelete"  />
+    <result column="wife_cert_num" property="certNum"  />
+    <result column="wife_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.wife_general_situation_id, a.pregnancy_archive_id, a.check_no, a.inquiry_time, a.organization_id, a.
+    user_id, a.iscomplete, a.is_had_disease, a.suffered_disease, a.other_disease, a.is_birth_defect, a.
+    birth_defect, a.is_gynecopathy, a.gynecopathy, a.other_gynecopathy, a.is_take_medicine, a.medicine_name, a.
+    is_vaccinated, a.vaccine, a.other_vaccine, a.is_contraception, a.contraception, a.other_contraception, a.
+    contraception_continuous_time, a.is_stop_contraception, a.stop_contraception_date, a.menarche_age, a.
+    last_menstruation_date, a.is_regular_menstrual, a.shortest_menstruation, a.longest_menstruation, a.
+    shortest_period, a.longest_period, a.menstrual_volume, a.dysmenorrhea, a.ever_pregnant, a.pregnancy_number, a.
+    live_birth_number, a.full_term_birth_number, a.premature_birth_number, a.had_adverse_pregnancy_outcome, a.
+    adverse_pregnancy_outcome, a.stillbirth_number, a.natural_abortion_number, a.artificial_abortion_number, a.
+    other_adverse_pregnancy_outcome_number, a.had_defect_child, a.defect_child_disease, a.disease_detail, a.
+    child_number, a.child_health, a.child_disease, a.is_close_relatives, a.couple_relationship, a.
+    is_family_close_relative, a.family_relationship, a.is_family_disease, a.family_disease, a.
+    other_family_disease, a.relationship, a.is_eat_meat_egg, a.is_anorexia_vegetables, a.is_eat_raw_meat, a.
+    is_somke, a.daily_somke_number, a.is_passive_smoking, a.daily_passive_smoking_minutes, a.
+    is_drink, a.daily_drink_volumn, a.is_take_drug, a.drug_name, a.is_halitosis, a.is_bleeding_gums, a.
+    is_harmful_environment, a.harmful_environment, a.other_harmful_environment, a.is_pressure, a.
+    is_relationship_tense, a.is_economic_pressure, a.is_prepare_pregnancy, a.pre_disease_value, a.
+    is_pre_disease, a.is_cutting_palace, a.cutting_palace_date_time, a.other_pre_disease_value, a.
+    other, a.create_user_id, a.create_datetime, a.update_user_id, a.update_datetime, a.isdelete,b.wife_cert_num ,b.wife_name ,b.zone_province_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_wife_general_situation a,${sourceName}.busi_pregnancy_archive b
+    where  a.pregnancy_archive_id = b.pregnancy_archive_id AND a.wife_general_situation_id = #{id,jdbcType=VARCHAR}
+  </select>
+</mapper>

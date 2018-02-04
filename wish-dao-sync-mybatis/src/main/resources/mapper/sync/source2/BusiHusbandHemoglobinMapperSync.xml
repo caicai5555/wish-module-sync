@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source2.BusiHusbandHemoglobinTwoDao" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiHusbandHemoglobin" >
+    <id column="husband_hemoglobin_id" property="husbandHemoglobinId"  />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId"  />
+    <result column="check_no" property="checkNo"  />
+    <result column="check_time" property="checkTime"  />
+    <result column="organization_id" property="organizationId"  />
+    <result column="check_doctor" property="checkDoctor"  />
+    <result column="iscomplete" property="iscomplete" />
+    <result column="is_hemoglobin_check" property="isHemoglobinCheck" />
+    <result column="hba2" property="hba2" jdbcType="REAL" />
+    <result column="hba" property="hba" jdbcType="REAL" />
+    <result column="hbf" property="hbf" jdbcType="REAL" />
+    <result column="anomalous_zone" property="anomalousZone"  />
+    <result column="is_gene_exam" property="isGeneExam" />
+    <result column="create_user_id" property="createUserId"  />
+    <result column="create_datetime" property="createDatetime"  />
+    <result column="update_user_id" property="updateUserId"  />
+    <result column="update_datetime" property="updateDatetime"  />
+    <result column="isdelete" property="isdelete" />
+    <result column="husband_cert_num" property="certNum"  />
+    <result column="husband_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.husband_hemoglobin_id, a.pregnancy_archive_id, a.check_no, a.check_time, a.organization_id,
+    a.check_doctor, a.iscomplete, a.is_hemoglobin_check, a.hba2, a.hba, a.hbf, a.anomalous_zone, a.is_gene_exam,
+    a.create_user_id, a.create_datetime, a.update_user_id, a.update_datetime, a.isdelete
+    ,b.husband_cert_num,b.husband_name ,b.zone_province_code
+  </sql>
+  <select id="queryById" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_husband_hemoglobin a
+    left join ${sourceName}.busi_pregnancy_archive b
+    on a.pregnancy_archive_id= b.pregnancy_archive_id
+    where a.husband_hemoglobin_id = #{id}
+  </select>
+
+</mapper>

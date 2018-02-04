@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source2.BusiWifeBValueTwoDao" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiWifeBValue" >
+    <id column="wife_b_value_id" property="wifeBValueId"  />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId"  />
+    <result column="check_no" property="checkNo"  />
+    <result column="check_time" property="checkTime"  />
+    <result column="organization_id" property="organizationId"  />
+    <result column="check_doctor" property="checkDoctor"  />
+    <result column="iscomplete" property="iscomplete"  />
+    <result column="check_status" property="checkStatus"  />
+    <result column="location" property="location"  />
+    <result column="size_long" property="sizeLong"  />
+    <result column="size_wide" property="sizeWide"  />
+    <result column="size_before_after" property="sizeBeforeAfter"  />
+    <result column="thick" property="thick"  />
+    <result column="is_synthetic" property="isSynthetic"  />
+    <result column="synthetic_is_normal" property="syntheticIsNormal"  />
+    <result column="b_detail" property="bDetail"  />
+    <result column="b_other_detail" property="bOtherDetail"  />
+    <result column="refuse_reason" property="refuseReason"  />
+    <result column="detail" property="detail"  />
+    <result column="echo" property="echo"  />
+    <result column="size" property="size"  />
+    <result column="form" property="form"  />
+    <result column="outline" property="outline"  />
+    <result column="filing_status" property="filingStatus"  />
+    <result column="bilateral_annex" property="bilateralAnnex"  />
+    <result column="create_user_id" property="createUserId"  />
+    <result column="create_datetime" property="createDatetime"  />
+    <result column="update_user_id" property="updateUserId"  />
+    <result column="update_datetime" property="updateDatetime"  />
+    <result column="isdelete" property="isdelete"  />
+    <result column="wife_cert_num" property="certNum"  />
+    <result column="wife_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.wife_b_value_id, a.pregnancy_archive_id, a.check_no, a.check_time, a.organization_id, a.check_doctor,
+    a.iscomplete, a.check_status, a.location, a.size_long, a.size_wide, a.size_before_after, a.thick,
+    a.is_synthetic, a.synthetic_is_normal, a.b_detail, a.b_other_detail, a.refuse_reason, a.detail,
+    a.echo, a.size, a.form, a.outline, a.filing_status, a.bilateral_annex, a.create_user_id, a.create_datetime,
+    a.update_user_id, a.update_datetime, a.isdelete
+    ,b.wife_cert_num,b.wife_name ,b.zone_province_code
+  </sql>
+  <select id="queryById" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_wife_b_value a
+    left join  ${sourceName}.busi_pregnancy_archive b
+    on a.pregnancy_archive_id= b.pregnancy_archive_id
+    where a.wife_b_value_id = #{id}
+  </select>
+
+</mapper>

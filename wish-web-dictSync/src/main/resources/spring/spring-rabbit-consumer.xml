@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--   &lt;!&ndash; <context:property-placeholder location="classpath:config.properties" ignore-unresolvable="true"/>&ndash;&gt;
+
+    &lt;!&ndash; 连接 rabbitmq &ndash;&gt;
+    <rabbit:connection-factory id="connectionFactory" username="${rabbit.username}" password="${rabbit.password}"
+                               host="${rabbit.host}" port="${rabbit.port}" virtual-host="${rabbit.vhost}"/>
+    &lt;!&ndash;通过指定下面的admin信息，当前producer中的exchange和queue会在rabbitmq服务器上自动生成&ndash;&gt;
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    &lt;!&ndash; 队列声明 durable:是否持久化 exclusive: 仅创建者可以使用的私有队列，断开后自动删除
+        auto_delete: 当所有消费客户端连接断开后，是否自动删除队列&ndash;&gt;
+    <rabbit:queue id="sms_queue_one" durable="true" auto-delete="false" exclusive="false" name="sms_queue_one"/>
+    <rabbit:queue id="sms_queue_topic" durable="true" auto-delete="false" exclusive="false" name="sms_queue_topic"/>
+
+    &lt;!&ndash; exchange queue binging key 绑定 &ndash;&gt;
+    <rabbit:direct-exchange name="my-mq-exchange" durable="true" auto-delete="false" id="my-mq-exchange">
+        <rabbit:bindings>
+            <rabbit:binding queue="sms_queue_one" key="sms_send_queue_key"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <rabbit:topic-exchange name="sms-topic-exchange" durable="true" auto-delete="false" id="sms-topic-exchange">
+        <rabbit:bindings>
+            <rabbit:binding pattern="sms_*_topic_key" queue="sms_queue_topic"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+    &lt;!&ndash;queues：监听的队列，多个的话用逗号（,）分隔ref：监听器&ndash;&gt;
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
+        <rabbit:listener queues="sms_queue_one" ref="smsSendListener"/>
+        <rabbit:listener queues="sms_queue_topic" ref="smsTopicSendListener"/>
+    </rabbit:listener-container>
+
+    <bean id="smsSendListener" class="com.foundation.soa.sms.impl.SendSmsImpl"/>
+    <bean id="smsTopicSendListener" class="com.foundation.soa.sms.impl.SendTopicSmsImpl"/>
+
+    &lt;!&ndash; 180秒 &ndash;&gt;
+    <rabbit:template id="amqpTemplate" reply-timeout="1000" connection-factory="connectionFactory"
+                     message-converter="jsonMessageConverter"/>
+
+    <bean id="retryConnTemplate" class="org.springframework.retry.support.RetryTemplate">
+        <property name="backOffPolicy">
+            <bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
+                <property name="initialInterval" value="500"/>
+                <property name="multiplier" value="10.0"/>
+                <property name="maxInterval" value="5000"/>
+            </bean>
+        </property>
+    </bean>-->
+</beans>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+      >
+
+    <!-- 加载 properties 配置文件 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:config.properties</value>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:mongodb.properties</value>
+                <value>classpath:jdbc.source1.properties</value>
+                <value>classpath:jdbc.source2.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 定义aspectj -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <!-- 扫描包 -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.foundation.dao.*"/>
+    <context:component-scan base-package="com.foundation.service.*"/>
+    <aop:config proxy-target-class="true"/>
+    <!-- 配置 JSR303 Bean Validator 定义 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+    <!--初始化工具包里的springHolder-->
+    <bean id="springContextHolder" class="com.foundation.common.utils.SpringContextHolder" />
+</beans>

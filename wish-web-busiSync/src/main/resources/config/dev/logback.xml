@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!--变量声明-->
+	<property name="app.name" value="wishWebSync"/>
+	<!--<property name="log.base" value="/data/logs/ms" />-->
+	<property name="log.base" value="c://logs//wish_web_busiSync/dev" />
+	<property name="log.name" value="wish_web_busiSync"/>
+
+	<contextName>${app.name}</contextName>
+
+
+
+	<!--default_log-->
+	<appender name="default_log"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.base}/${log.name}.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n
+			</pattern>
+			<charset>UTF-8</charset>
+		</layout>
+	</appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoder的默认实现类是ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!--<logger name="com.foundation" level="DEBUG" >
+		<appender-ref ref="STDOUT"/>
+	</logger>-->
+	<!--<logger name="com.foundation" level="INFO" >
+		<appender-ref ref="default_log" />
+	</logger>-->
+	<!--default_log end-->
+
+
+	<!--其他日志包结构符合基本的交由root的appender打印输出   -->
+	<logger name="org.apache.catalina" level="DEBUG" />
+	<logger name="org.apache" level="DEBUG" />
+	<logger name="com.google.code" level="DEBUG" />
+	<logger name="org.springframework" level="DEBUG" />
+	<logger name="com.ibatis.mybatis" level="DEBUG" />
+<!--	<logger name="com.ibatis.common.jdbc.SimpleDataSource" level="DEBUG" />
+	<logger name="com.ibatis.common.jdbc.ScriptRunner" level="DEBUG" />
+	<logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" />
+	<logger name="java.sql.Connection" level="DEBUG" />
+	<logger name="java.sql.Statement" level="DEBUG" />
+	<logger name="java.sql.PreparedStatement" level="DEBUG" />-->
+
+	<root level="INFO">
+		<appender-ref ref="default_log" />
+	</root>
+</configuration>

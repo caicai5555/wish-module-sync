@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foundation.dao.modules.sync.source1.BusiExamValueWScopeOneDaoSync">
+
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiExamValueWScope">
+    <id column="exam_value_w_scope_id"  property="examValueWScopeId" />
+    <result column="pregnancy_archive_id"  property="pregnancyArchiveId" />
+    <result column="w1"  property="w1" />
+    <result column="w2"  property="w2" />
+    <result column="w3"  property="w3" />
+    <result column="w4"  property="w4" />
+    <result column="w5"  property="w5" />
+    <result column="w6"  property="w6" />
+    <result column="w7"  property="w7" />
+    <result column="w8"  property="w8" />
+    <result column="w9"  property="w9" />
+    <result column="w10"  property="w10" />
+    <result column="w11"  property="w11" />
+    <result column="w12"  property="w12" />
+    <result column="w13"  property="w13" />
+    <result column="w14"  property="w14" />
+    <result column="w15"  property="w15" />
+    <result column="w16"  property="w16" />
+    <result column="w17"  property="w17" />
+    <result column="w18"  property="w18" />
+    <result column="w19"  property="w19" />
+    <result column="w20"  property="w20" />
+    <result column="w21"  property="w21" />
+    <result column="w22"  property="w22" />
+    <result column="w23"  property="w23" />
+    <result column="w24"  property="w24" />
+    <result column="w25"  property="w25" />
+    <result column="w26"  property="w26" />
+    <result column="w27"  property="w27" />
+    <result column="w28"  property="w28" />
+    <result column="w29"  property="w29" />
+    <result column="w30"  property="w30" />
+    <result column="w31"  property="w31" />
+    <result column="w32"  property="w32" />
+    <result column="w33"  property="w33" />
+    <result column="w34"  property="w34" />
+    <result column="w35"  property="w35" />
+    <result column="w36"  property="w36" />
+    <result column="w37"  property="w37" />
+    <result column="w38"  property="w38" />
+    <result column="w39"  property="w39" />
+    <result column="w40"  property="w40" />
+    <result column="w41"  property="w41" />
+    <result column="w42"  property="w42" />
+    <result column="w43"  property="w43" />
+    <result column="w44"  property="w44" />
+    <result column="w45"  property="w45" />
+    <result column="w46"  property="w46" />
+    <result column="w47"  property="w47" />
+    <result column="w48"  property="w48" />
+    <result column="w49"  property="w49" />
+    <result column="w50"  property="w50" />
+    <result column="w51"  property="w51" />
+    <result column="w52"  property="w52" />
+    <result column="w53"  property="w53" />
+    <result column="w54"  property="w54" />
+    <result column="w55"  property="w55" />
+    <result column="w56"  property="w56" />
+    <result column="w57"  property="w57" />
+    <result column="w58"  property="w58" />
+    <result column="w59"  property="w59" />
+    <result column="w60"  property="w60" />
+    <result column="w61"  property="w61" />
+    <result column="w62"  property="w62" />
+    <result column="w63"  property="w63" />
+    <result column="w64"  property="w64" />
+    <result column="w65"  property="w65" />
+    <result column="w66"  property="w66" />
+    <result column="w67"  property="w67" />
+    <result column="w68"  property="w68" />
+    <result column="w69"  property="w69" />
+    <result column="w70"  property="w70" />
+    <result column="w71"  property="w71" />
+    <result column="w72"  property="w72" />
+    <result column="w73"  property="w73" />
+    <result column="w74"  property="w74" />
+    <result column="w75"  property="w75" />
+    <result column="w76"  property="w76" />
+    <result column="w77"  property="w77" />
+    <result column="w78"  property="w78" />
+    <result column="w79"  property="w79" />
+    <result column="w80"  property="w80" />
+    <result column="w81"  property="w81" />
+    <result column="w82"  property="w82" />
+    <result column="w83"  property="w83" />
+    <result column="w84"  property="w84" />
+    <result column="w85"  property="w85" />
+    <result column="w86"  property="w86" />
+    <result column="w87"  property="w87" />
+    <result column="w88"  property="w88" />
+    <result column="w89"  property="w89" />
+    <result column="w90"  property="w90" />
+    <result column="w91"  property="w91" />
+    <result column="w92"  property="w92" />
+    <result column="w93"  property="w93" />
+    <result column="w94"  property="w94" />
+    <result column="w95"  property="w95" />
+    <result column="w96"  property="w96" />
+    <result column="w97"  property="w97" />
+    <result column="w98"  property="w98" />
+    <result column="w99"  property="w99" />
+    <result column="w100"  property="w100" />
+    <result column="w101"  property="w101" />
+    <result column="w102"  property="w102" />
+    <result column="w103"  property="w103" />
+    <result column="w104"  property="w104" />
+    <result column="w105"  property="w105" />
+    <result column="w106"  property="w106" />
+    <result column="w107"  property="w107" />
+    <result column="w108"  property="w108" />
+    <result column="w109"  property="w109" />
+    <result column="w110"  property="w110" />
+    <result column="w111"  property="w111" />
+    <result column="w112"  property="w112" />
+    <result column="w113"  property="w113" />
+    <result column="w114"  property="w114" />
+    <result column="w115"  property="w115" />
+    <result column="w116"  property="w116" />
+    <result column="w117"  property="w117" />
+    <result column="w118"  property="w118" />
+    <result column="w119"  property="w119" />
+    <result column="w120"  property="w120" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    a.exam_value_w_scope_id, a.pregnancy_archive_id, a.w1, a.w2, a.w3, a.w4, a.w5,
+    a.w6, a.w7, a.w8, a.w9, a.w10, a.w11, a.w12, a.w13, a.w14, a.w15, a.w16, a.w17, a.w18, a.w19, a.w20, a.w21, a.w22,
+    a.w23, a.w24, a.w25, a.w26, a.w27, a.w28, a.w29, a.w30, a.w31, a.w32, a.w33, a.w34, a.w35, a.w36, a.w37, a.w38, a.w39,
+    a.w40, a.w41, a.w42, a.w43, a.w44, a.w45, a.w46, a.w47, a.w48, a.w49, a.w50, a.w51, a.w52, a.w53, a.w54, a.w55, a.w56,
+    a.w57, a.w58, a.w59, a.w60, a.w61, a.w62, a.w63, a.w64, a.w65, a.w66, a.w67, a.w68, a.w69, a.w70, a.w71, a.w72, a.w73,
+    a.w74, a.w75, a.w76, a.w77, a.w78, a.w79, a.w80, a.w81, a.w82, a.w83, a.w84, a.w85, a.w86, a.w87, a.w88, a.w89, a.w90,
+    a.w91, a.w92, a.w93, a.w94, a.w95, a.w96, a.w97, a.w98, a.w99, a.w100,a.w101,a.w102,a.w103,a.w104,a.w105,a.w106,
+    a.w107,a.w108,a.w109,a.w110,a.w111,a.w112,a.w113,a.w114,a.w115,a.w116,a.w117,a.w118,a.w119,a.w120
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_exam_value_w_scope a
+    where  a.exam_value_w_scope_id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByPregnancyArchiveIdKey" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_exam_value_w_scope a
+    where  a.pregnancy_archive_id= #{pregnancyArchiveId,jdbcType=VARCHAR}
+    order by a.exam_value_w_scope_id DESC limit 1
+  </select>
+</mapper>

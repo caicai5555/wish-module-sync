@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source2.BusiHusbandGeneTwoDao" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiHusbandGene" >
+    <id column="husband_gene_id" property="husbandGeneId" />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId" />
+    <result column="check_no" property="checkNo" />
+    <result column="check_time" property="checkTime" />
+    <result column="organization_id" property="organizationId" />
+    <result column="check_doctor" property="checkDoctor" />
+    <result column="iscomplete" property="iscomplete" />
+    <result column="is_gene_check" property="isGeneCheck" />
+    <result column="a_gene_is_normal" property="aGeneIsNormal" />
+    <result column="a_sea" property="aSea" />
+    <result column="a_37" property="a37" />
+    <result column="a_42" property="a42" />
+    <result column="a_cs" property="aCs" />
+    <result column="a_qs" property="aQs"  />
+    <result column="a_ws" property="aWs"  />
+    <result column="a_other" property="aOther"  />
+    <result column="b_gene_is_normal" property="bGeneIsNormal"  />
+    <result column="b_cd1415g" property="bCd1415g"  />
+    <result column="b_cd17at" property="bCd17at"  />
+    <result column="b_cd2728a" property="bCd2728a"  />
+    <result column="b_cd2728c" property="bCd2728c"  />
+    <result column="b_28ag" property="b28ag"  />
+    <result column="b_28ac" property="b28ac"  />
+    <result column="b_30ag" property="b30ag"  />
+    <result column="b_30tc" property="b30tc"  />
+    <result column="b_cd31c" property="bCd31c"  />
+    <result column="b_32ca" property="b32ca"  />
+    <result column="b_cd4142cttt" property="bCd4142cttt"  />
+    <result column="b_cd4142tctt" property="bCd4142tctt"  />
+    <result column="b_cd43gt" property="bCd43gt"  />
+    <result column="b_cd43" property="bCd43"  />
+    <result column="b_cd7172a" property="bCd7172a"  />
+    <result column="b_capac" property="bCapac"  />
+    <result column="b_cap4043aaac" property="bCap4043aaac"  />
+    <result column="b_inim_atg_agg" property="bInimAtgAgg"  />
+    <result column="b_ivs_i_1gt" property="bIvsI1gt"  />
+    <result column="b_ivs_i_1ga" property="bIvsI1ga"  />
+    <result column="b_ivs_i_tgc" property="bIvsITgc"  />
+    <result column="b_ivs_ii_654ct" property="bIvsIi654ct"  />
+    <result column="b_be" property="bBe"  />
+    <result column="b_be_gag_aag" property="bBeGagAag"  />
+    <result column="b_50ga" property="b50ga"  />
+    <result column="b_other" property="bOther"  />
+    <result column="b_cd26" property="bCd26"  />
+    <result column="b_29" property="b29"  />
+    <result column="create_user_id" property="createUserId"  />
+    <result column="create_datetime" property="createDatetime"  />
+    <result column="update_user_id" property="updateUserId"  />
+    <result column="update_datetime" property="updateDatetime"  />
+    <result column="isdelete" property="isdelete"  />
+    <result column="husband_cert_num" property="certNum"  />
+    <result column="husband_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.husband_gene_id, a.pregnancy_archive_id, a.check_no, a.check_time, a.organization_id, a.check_doctor,
+    a.iscomplete, a.is_gene_check, a.a_gene_is_normal, a.a_sea, a.a_37, a.a_42, a.a_cs, a.a_qs, a.a_ws,
+    a.a_other, a.b_gene_is_normal, a.b_cd1415g, a.b_cd17at, a.b_cd2728a, a.b_cd2728c, a.b_28ag, a.b_28ac,
+    a.b_30ag, a.b_30tc, a.b_cd31c, a.b_32ca, a.b_cd4142cttt, a.b_cd4142tctt, a.b_cd43gt, a.b_cd43, a.b_cd7172a,
+    a.b_capac, a.b_cap4043aaac, a.b_inim_atg_agg, a.b_ivs_i_1gt, a.b_ivs_i_1ga, a.b_ivs_i_tgc, a.b_ivs_ii_654ct,
+    a.b_be, a.b_be_gag_aag, a.b_50ga, a.b_other, a.b_cd26, a.b_29, a.create_user_id, a.create_datetime,
+    a.update_user_id, a.update_datetime, a.isdelete,b.husband_cert_num,b.husband_name,b.zone_province_code
+  </sql>
+  <select id="queryById" resultMap="BaseResultMap" parameterType="map" >
+    select
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_husband_gene a
+    left join ${sourceName}.busi_pregnancy_archive b
+    on a.pregnancy_archive_id= b.pregnancy_archive_id
+    where a.husband_gene_id = #{id}
+  </select>
+
+</mapper>

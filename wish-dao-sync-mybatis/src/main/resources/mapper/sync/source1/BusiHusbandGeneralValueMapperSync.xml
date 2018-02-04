@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source1.BusiHusbandGeneralValueOneDaoSync" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiHusbandGeneralValue" >
+    <id column="husband_general_value_id" property="husbandGeneralValueId"  />
+    <result column="husband_general_situation_id" property="husbandGeneralSituationId"  />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId"  />
+    <result column="anemia" property="anemia"  />
+    <result column="high_blood" property="highBlood"  />
+    <result column="heart_disease" property="heartDisease"  />
+    <result column="diabetes" property="diabetes"  />
+    <result column="epilepsy" property="epilepsy"  />
+    <result column="thyropathy" property="thyropathy"  />
+    <result column="nephritis" property="nephritis"  />
+    <result column="tumor" property="tumor"  />
+    <result column="tuberculosis" property="tuberculosis"  />
+    <result column="hepatitis" property="hepatitis"  />
+    <result column="gonorrhea" property="gonorrhea"  />
+    <result column="syphilis" property="syphilis"  />
+    <result column="chlamydia" property="chlamydia"  />
+    <result column="disorders" property="disorders"  />
+    <result column="orchitis" property="orchitis"  />
+    <result column="varicocele" property="varicocele"  />
+    <result column="infertility" property="infertility"  />
+    <result column="mumps" property="mumps"  />
+    <result column="rubella" property="rubella"  />
+    <result column="hepatitis_b" property="hepatitisB"  />
+    <result column="mediterranean_anemia" property="mediterraneanAnemia"  />
+    <result column="albino" property="albino"  />
+    <result column="g6pd" property="g6pd"  />
+    <result column="hemophilia" property="hemophilia"  />
+    <result column="congenital_heart_disease" property="congenitalHeartDisease"  />
+    <result column="syndrome" property="syndrome"  />
+    <result column="family_diabetes" property="familyDiabetes"  />
+    <result column="mental_low" property="mentalLow"  />
+    <result column="hear_low" property="hearLow"  />
+    <result column="vision_low" property="visionLow"  />
+    <result column="child_dead" property="childDead"  />
+    <result column="radiation" property="radiation"  />
+    <result column="high_temperature" property="highTemperature"  />
+    <result column="noise" property="noise"  />
+    <result column="organic_solvent" property="organicSolvent"  />
+    <result column="pet" property="pet"  />
+    <result column="vibration" property="vibration"  />
+    <result column="heavy_metal" property="heavyMetal"  />
+    <result column="pesticide" property="pesticide"  />
+    <result column="mildew_food" property="mildewFood"  />
+    <result column="isdelete" property="isdelete"  />
+    <result column="create_user_id" property="createUserId"  />
+    <result column="create_datetime" property="createDatetime"  />
+    <result column="update_user_id" property="updateUserId"  />
+    <result column="update_datetime" property="updateDatetime"  />
+    <result column="husband_cert_num" property="certNum"  />
+    <result column="husband_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.husband_general_value_id, a.husband_general_situation_id, a.pregnancy_archive_id, a.anemia, a.
+    high_blood, a.heart_disease, a.diabetes, a.epilepsy, a.thyropathy, a.nephritis, a.tumor, a.tuberculosis, a.
+    hepatitis, a.gonorrhea, a.syphilis, a.chlamydia, a.disorders, a.orchitis, a.varicocele, a.infertility, a.
+    mumps, a.rubella, a.hepatitis_b, a.mediterranean_anemia, a.albino, a.g6pd, a.hemophilia, a.congenital_heart_disease, a.
+    syndrome, a.family_diabetes, a.mental_low, a.hear_low, a.vision_low, a.child_dead, a.radiation, a.
+    high_temperature, a.noise, a.organic_solvent, a.pet, a.vibration, a.heavy_metal, a.pesticide, a.
+    mildew_food, a.isdelete, a.create_user_id, a.create_datetime, a.update_user_id,
+     a.update_datetime,b.husband_cert_num,b.husband_name ,b.zone_province_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_husband_general_value a,${sourceName}.busi_pregnancy_archive b
+    where a.pregnancy_archive_id = b.pregnancy_archive_id AND a.husband_general_value_id = #{id,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source1.BusiWifeBasicInfoOneDaoSync" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiWifeBasicInfo" >
+    <id column="wife_basic_info_id" property="wifeBasicInfoId" />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId" />
+    <result column="name" property="name" />
+    <result column="birthday" property="birthday"  />
+    <result column="age" property="age"  />
+    <result column="nation" property="nation"  />
+    <result column="education" property="education"  />
+    <result column="certificate_type" property="certificateType"  />
+    <result column="certificate_number" property="certificateNumber" />
+    <result column="occupation" property="occupation"  />
+    <result column="occupation_others" property="occupationOthers" />
+    <result column="post_code" property="postCode" />
+    <result column="phone_num" property="phoneNum" />
+    <result column="followup_type" property="followupType"  />
+    <result column="hukou_type" property="hukouType"  />
+    <result column="address_province" property="addressProvince" />
+    <result column="address_city" property="addressCity" />
+    <result column="address_county" property="addressCounty" />
+    <result column="address_town" property="addressTown" />
+    <result column="address_village" property="addressVillage" />
+    <result column="hukou_province" property="hukouProvince" />
+    <result column="hukou_city" property="hukouCity" />
+    <result column="hukou_county" property="hukouCounty" />
+    <result column="hukou_town" property="hukouTown" />
+    <result column="hukou_village" property="hukouVillage" />
+    <result column="last_modify_time" property="lastModifyTime" />
+    <result column="marry_date" property="marryDate"  />
+    <result column="iscomplete" property="iscomplete"  />
+    <result column="create_user_id" property="createUserId" />
+    <result column="create_datetime" property="createDatetime" />
+    <result column="update_user_id" property="updateUserId" />
+    <result column="update_datetime" property="updateDatetime" />
+    <result column="isdelete" property="isdelete"  />
+    <result column="wife_cert_num" property="certNum"  />
+    <result column="wife_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.wife_basic_info_id, a.pregnancy_archive_id, a.name, a.birthday, a.age, a.nation, a.education, a.
+    certificate_type, a.certificate_number, a.occupation, a.occupation_others, a.post_code, a.phone_num, a.
+    followup_type, a.hukou_type, a.address_province, a.address_city, a.address_county, a.address_town, a.
+    address_village, a.hukou_province, a.hukou_city, a.hukou_county, a.hukou_town, a.hukou_village, a.
+    last_modify_time, a.marry_date, a.iscomplete, a.create_user_id, a.create_datetime, a.update_user_id, a.
+    update_datetime, a.isdelete,b.wife_cert_num ,b.wife_name ,b.zone_province_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_wife_basic_info a,${sourceName}.busi_pregnancy_archive b
+    where a.pregnancy_archive_id = b.pregnancy_archive_id AND a.wife_basic_info_id = #{id,jdbcType=VARCHAR}
+  </select>
+</mapper>

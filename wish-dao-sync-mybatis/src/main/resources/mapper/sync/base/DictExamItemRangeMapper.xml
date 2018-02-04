@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foundation.dao.modules.base.DictExamItemRangeDao">
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.base.DictExamItemRange">
+    <id column="exam_item_range_id"  property="examItemRangeId" />
+    <result column="item_code"  property="itemCode" />
+    <result column="item_name"  property="itemName" />
+    <result column="description"  property="description" />
+    <result column="detect_type"  property="detectType" />
+    <result column="detect_method"  property="detectMethod" />
+    <result column="other_detect_method"  property="otherDetectMethod" />
+    <result column="kit_band"  property="kitBand" />
+    <result column="equip_type"  property="equipType" />
+    <result column="equip_firm"  property="equipFirm" />
+    <result column="min_value"  property="minValue" />
+    <result column="max_value"  property="maxValue" />
+    <result column="unit"  property="unit" />
+    <result column="scope_method"  property="scopeMethod" />
+    <result column="own_organization_id"  property="ownOrganizationId" />
+    <result column="set_organization_id"  property="setOrganizationId" />
+    <result column="start_date"  property="startDate" />
+    <result column="expired_date"  property="expiredDate" />
+    <result column="reference"  property="reference" />
+    <result column="create_user_id"  property="createUserId" />
+    <result column="create_datetime"  property="createDatetime" />
+    <result column="update_user_id"  property="updateUserId" />
+    <result column="update_datetime"  property="updateDatetime" />
+    <result column="isdelete"  property="isdelete" />
+    <result column="sex_type"  property="sexType" />
+    <result column="value_type"  property="valueType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    exam_item_range_id, item_code, item_name, description, detect_type, detect_method, 
+    other_detect_method, kit_band, equip_type, equip_firm, min_value, max_value, unit, 
+    scope_method, own_organization_id, set_organization_id, start_date, expired_date, 
+    reference, create_user_id, create_datetime, update_user_id, update_datetime, isdelete, 
+    sex_type, value_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dict_exam_item_range
+    where exam_item_range_id = #{id,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

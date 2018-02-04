@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foundation.dao.modules.sync.source1.BusiExamValueBOneDaoSync">
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiExamValueB">
+    <id column="exam_value_b_id"  property="examValueBId" />
+    <result column="exam_date"  property="examDate" />
+    <result column="pregnancy_archive_id"  property="pregnancyArchiveId" />
+    <result column="check_no"  property="checkNo" />
+    <result column="organization_id"  property="organizationId" />
+    <result column="check_doctor"  property="checkDoctor" />
+    <result column="iscomplete"  property="iscomplete" />
+    <result column="b1"  property="b1" />
+    <result column="b2"  property="b2" />
+    <result column="b3"  property="b3" />
+    <result column="b4"  property="b4" />
+    <result column="b5"  property="b5" />
+    <result column="b6"  property="b6" />
+    <result column="b7"  property="b7" />
+    <result column="b8"  property="b8" />
+    <result column="b9"  property="b9" />
+    <result column="b10"  property="b10" />
+    <result column="b11"  property="b11" />
+    <result column="b12"  property="b12" />
+    <result column="b13"  property="b13" />
+    <result column="b14"  property="b14" />
+    <result column="b15"  property="b15" />
+    <result column="b16"  property="b16" />
+    <result column="b17"  property="b17" />
+    <result column="b18"  property="b18" />
+    <result column="b19"  property="b19" />
+    <result column="b20"  property="b20" />
+    <result column="b21"  property="b21" />
+    <result column="b22"  property="b22" />
+    <result column="b23"  property="b23" />
+    <result column="b24"  property="b24" />
+    <result column="b25"  property="b25" />
+    <result column="b26"  property="b26" />
+    <result column="b27"  property="b27" />
+    <result column="b28"  property="b28" />
+    <result column="b29"  property="b29" />
+    <result column="b30"  property="b30" />
+    <result column="b31"  property="b31" />
+    <result column="b32"  property="b32" />
+    <result column="b33"  property="b33" />
+    <result column="b34"  property="b34" />
+    <result column="b35"  property="b35" />
+    <result column="b36"  property="b36" />
+    <result column="b37"  property="b37" />
+    <result column="b38"  property="b38" />
+    <result column="b39"  property="b39" />
+    <result column="b40"  property="b40" />
+    <result column="b41"  property="b41" />
+    <result column="b42"  property="b42" />
+    <result column="b43"  property="b43" />
+    <result column="b44"  property="b44" />
+    <result column="b45"  property="b45" />
+    <result column="b46"  property="b46" />
+    <result column="b47"  property="b47" />
+    <result column="b48"  property="b48" />
+    <result column="b49"  property="b49" />
+    <result column="b50"  property="b50" />
+    <result column="b51"  property="b51" />
+    <result column="b52"  property="b52" />
+    <result column="b53"  property="b53" />
+    <result column="b54"  property="b54" />
+    <result column="b55"  property="b55" />
+    <result column="b56"  property="b56" />
+    <result column="b57"  property="b57" />
+    <result column="b58"  property="b58" />
+    <result column="b59"  property="b59" />
+    <result column="b60"  property="b60" />
+    <result column="b61"  property="b61" />
+    <result column="b62"  property="b62" />
+    <result column="b63"  property="b63" />
+    <result column="b64"  property="b64" />
+    <result column="b65"  property="b65" />
+    <result column="b66"  property="b66" />
+    <result column="b67"  property="b67" />
+    <result column="b68"  property="b68" />
+    <result column="b69"  property="b69" />
+    <result column="b70"  property="b70" />
+    <result column="b71"  property="b71" />
+    <result column="b72"  property="b72" />
+    <result column="b73"  property="b73" />
+    <result column="b74"  property="b74" />
+    <result column="b75"  property="b75" />
+    <result column="b76"  property="b76" />
+    <result column="b77"  property="b77" />
+    <result column="b78"  property="b78" />
+    <result column="b79"  property="b79" />
+    <result column="b80"  property="b80" />
+    <result column="b81"  property="b81" />
+    <result column="b82"  property="b82" />
+    <result column="b83"  property="b83" />
+    <result column="b84"  property="b84" />
+    <result column="b85"  property="b85" />
+    <result column="b86"  property="b86" />
+    <result column="b87"  property="b87" />
+    <result column="b88"  property="b88" />
+    <result column="b89"  property="b89" />
+    <result column="b90"  property="b90" />
+    <result column="b91"  property="b91" />
+    <result column="b92"  property="b92" />
+    <result column="b93"  property="b93" />
+    <result column="b94"  property="b94" />
+    <result column="b95"  property="b95" />
+    <result column="b96"  property="b96" />
+    <result column="b97"  property="b97" />
+    <result column="b98"  property="b98" />
+    <result column="b99"  property="b99" />
+    <result column="b100"  property="b100" />
+    <result column="is_hemoglobin"  property="isHemoglobin" />
+    <result column="is_gene"  property="isGene" />
+    <result column="create_datetime"  property="createDatetime" />
+    <result column="create_user_id"  property="createUserId" />
+    <result column="update_user_id"  property="updateUserId" />
+    <result column="update_datetime"  property="updateDatetime" />
+    <result column="isdelete"  property="isdelete" />
+    <result column="husband_cert_num" property="certNum"  />
+    <result column="husband_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+</resultMap>
+  <sql id="Base_Column_List">
+    a.exam_value_b_id, a.exam_date, a.pregnancy_archive_id, a.check_no, a.organization_id, a.check_doctor, a.
+    iscomplete, a.b1, a.b2, a.b3, a.b4, a.b5, a.b6, a.b7, a.b8, a.b9, a.b10, a.b11, a.b12, a.b13, a.b14, a.b15, a.b16, a.
+    b17, a.b18, a.b19, a.b20, a.b21, a.b22, a.b23, a.b24, a.b25, a.b26, a.b27, a.b28, a.b29, a.b30, a.b31, a.b32, a.b33, a.
+    b34, a.b35, a.b36, a.b37, a.b38, a.b39, a.b40, a.b41, a.b42, a.b43, a.b44, a.b45, a.b46, a.b47, a.b48, a.b49, a.b50, a.
+    b51, a.b52, a.b53, a.b54, a.b55, a.b56, a.b57, a.b58, a.b59, a.b60, a.b61, a.b62, a.b63, a.b64, a.b65, a.b66, a.b67, a.
+    b68, a.b69, a.b70, a.b71, a.b72, a.b73, a.b74, a.b75, a.b76, a.b77, a.b78, a.b79, a.b80, a.b81, a.b82, a.b83, a.b84, a.
+    b85, a.b86, a.b87, a.b88, a.b89, a.b90, a.b91, a.b92, a.b93, a.b94, a.b95, a.b96, a.b97, a.b98, a.b99, a.b100, a.
+    is_hemoglobin, a.is_gene, a.create_datetime, a.create_user_id, a.update_user_id, a.update_datetime, a.
+    isdelete,b.husband_cert_num,b.husband_name,b.zone_province_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_exam_value_b a,${sourceName}.busi_pregnancy_archive b
+    where  a.pregnancy_archive_id = b.pregnancy_archive_id AND a.exam_value_b_id = #{id,jdbcType=VARCHAR}
+  </select>
+</mapper>

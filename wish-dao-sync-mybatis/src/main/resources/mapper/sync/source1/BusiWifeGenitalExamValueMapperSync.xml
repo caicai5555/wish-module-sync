@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foundation.dao.modules.sync.source1.BusiWifeGenitalExamValueOneDao">
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiWifeGenitalExamValue">
+    <id column="wife_genital_id"  property="wifeGenitalId" />
+    <result column="pregnancy_archive_id"  property="pregnancyArchiveId" />
+    <result column="check_no"  property="checkNo" />
+    <result column="check_time"  property="checkTime" />
+    <result column="organization_id"  property="organizationId" />
+    <result column="check_doctor"  property="checkDoctor" />
+    <result column="iscomplete" property="iscomplete" />
+    <result column="is_check" property="isCheck" />
+    <result column="uncheck_reason"  property="uncheckReason" />
+    <result column="pubes" property="pubes" />
+    <result column="pubes_deail"  property="pubesDeail" />
+    <result column="bubby" property="bubby" />
+    <result column="bubby_deail"  property="bubbyDeail" />
+    <result column="vulva" property="vulva" />
+    <result column="vulva_deail"  property="vulvaDeail" />
+    <result column="vagina" property="vagina" />
+    <result column="vagina_deail"  property="vaginaDeail" />
+    <result column="secretion" property="secretion" />
+    <result column="secretion_deail"  property="secretionDeail" />
+    <result column="cervix" property="cervix" />
+    <result column="cervix_deail"  property="cervixDeail" />
+    <result column="uterine_size" property="uterineSize" />
+    <result column="uterine_activity" property="uterineActivity" />
+    <result column="uterine_mass" property="uterineMass" />
+    <result column="uterine_mass_deail"  property="uterineMassDeail" />
+    <result column="bilateral_annex" property="bilateralAnnex" />
+    <result column="bilateral_annex_detail"  property="bilateralAnnexDetail" />
+    <result column="other_exam"  property="otherExam" />
+    <result column="create_user_id"  property="createUserId" />
+    <result column="create_datetime"  property="createDatetime" />
+    <result column="update_user_id"  property="updateUserId" />
+    <result column="update_datetime"  property="updateDatetime" />
+    <result column="isdelete" property="isdelete" />
+    <result column="wife_cert_num" property="certNum"  />
+    <result column="wife_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+  </resultMap>
+  <sql id="Base_Column_List">
+    a.wife_genital_id, a.pregnancy_archive_id, a.check_no, a.check_time, a.organization_id, a.check_doctor,
+    a.iscomplete, a.is_check, a.uncheck_reason, a.pubes, a.pubes_deail, a.bubby, a.bubby_deail, a.vulva,
+    a.vulva_deail, a.vagina, a.vagina_deail, a.secretion, a.secretion_deail, a.cervix, a.cervix_deail,
+    a.uterine_size, a.uterine_activity, a.uterine_mass, a.uterine_mass_deail, a.bilateral_annex,
+    a.bilateral_annex_detail, a.other_exam, a.create_user_id, a.create_datetime, a.update_user_id,
+    a.update_datetime, a.isdelete
+    ,b.wife_cert_num,b.wife_name ,b.zone_province_code
+  </sql>
+  <select id="queryById" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_wife_genital_exam_value a
+    left join ${sourceName}.busi_pregnancy_archive b
+    on a.pregnancy_archive_id= b.pregnancy_archive_id
+    where a.wife_genital_id = #{id}
+  </select>
+</mapper>

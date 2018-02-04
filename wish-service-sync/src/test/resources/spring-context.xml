@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+       default-autowire="byName">
+
+    <description>Spring Configuration</description>
+
+    <aop:config proxy-target-class="true"></aop:config>
+    <!-- 配置 JSR303 Bean Validator 定义 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+    <!--初始化工具包里的springHolder-->
+    <bean id="springContextHolder" class="com.foundation.common.utils.SpringContextHolder" />
+    <!-- 定义aspectj -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <context:component-scan base-package="com.foundation.service.*"/>
+    <context:component-scan base-package="com.foundation.dao.*"/>
+
+
+</beans>

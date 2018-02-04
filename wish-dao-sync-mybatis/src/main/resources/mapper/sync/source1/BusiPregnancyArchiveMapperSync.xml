@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foundation.dao.modules.sync.source1.BusiPregnancyArchiveOneDao">
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiPregnancyArchive">
+    <id column="pregnancy_archive_id"  property="pregnancyArchiveId" />
+    <result column="archive_code"  property="archiveCode" />
+    <result column="informed_consent_signed"  property="informedConsentSigned" />
+    <result column="wife_cert_num"  property="wifeCertNum" />
+    <result column="wife_name"  property="wifeName" />
+    <result column="husband_cert_num"  property="husbandCertNum" />
+    <result column="husband_name"  property="husbandName" />
+    <result column="service_zone_code"  property="serviceZoneCode" />
+    <result column="service_organization_id"  property="serviceOrganizationId" />
+    <result column="service_organization_name"  property="serviceOrganizationName" />
+    <result column="assit_zone_code"  property="assitZoneCode" />
+    <result column="assit_organization_id"  property="assitOrganizationId" />
+    <result column="assit_organization_name"  property="assitOrganizationName" />
+    <result column="followup_organization_id"  property="followupOrganizationId" />
+    <result column="followup_organization_name"  property="followupOrganizationName" />
+    <result column="followup_zone_code"  property="followupZoneCode" />
+    <result column="zone_province_code"  property="zoneProvinceCode" />
+    <result column="zone_city_code"  property="zoneCityCode" />
+    <result column="zone_county_code"  property="zoneCountyCode" />
+    <result column="zone_town_code"  property="zoneTownCode" />
+    <result column="province_code"  property="provinceCode" />
+    <result column="city_code"  property="cityCode" />
+    <result column="county_code"  property="countyCode" />
+    <result column="town_code"  property="townCode" />
+    <result column="is_update"  property="isUpdate" />
+    <result column="table_lists"  property="tableLists" />
+    <result column="user_id"  property="userId" />
+    <result column="user_name"  property="userName" />
+    <result column="float_population"  property="floatPopulation" />
+    <result column="evaluate_start_time"  property="evaluateStartTime" />
+    <result column="evaluate_end_time"  property="evaluateEndTime" />
+    <result column="early_pre_end_time"  property="earlyPreEndTime" />
+    <result column="evaluate_status"  property="evaluateStatus" />
+    <result column="input_date"  property="inputDate" />
+    <result column="tel_phone_num"  property="telPhoneNum" />
+    <result column="iscomplete"  property="iscomplete" />
+    <result column="isdelete"  property="isdelete" />
+
+  </resultMap>
+
+  <resultMap id="wifeResultMap" type="com.foundation.dao.entity.sync.BusiPregnancyArchive">
+    <result column="husband_cert_num" property="certNum"  />
+    <result column="husband_name" property="certName"  />
+  </resultMap>
+
+  <resultMap id="husbandResultMap" type="com.foundation.dao.entity.sync.BusiPregnancyArchive">
+    <result column="husband_cert_num" property="certNum"  />
+    <result column="husband_name" property="certName"  />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    a.pregnancy_archive_id, a.archive_code, a.informed_consent_signed, a.wife_cert_num, a.wife_name,
+    a.husband_cert_num, a.husband_name, a.service_zone_code, a.service_organization_id, a.service_organization_name,
+    a.assit_zone_code, a.assit_organization_id, a.assit_organization_name, a.followup_organization_id,
+    a.followup_organization_name, a.followup_zone_code, a.zone_province_code, a.zone_city_code,
+    a.zone_county_code, a.zone_town_code, a.province_code, a.city_code, a.county_code, a.town_code,
+    a.is_update, a.table_lists, a.user_id, a.user_name, a.float_population, a.evaluate_start_time,
+    a.evaluate_end_time, a.early_pre_end_time, a.evaluate_status, a.input_date, a.tel_phone_num,
+    a.iscomplete, a.create_user_id, a.create_datetime, a.update_user_id, a.update_datetime, a.isdelete
+  </sql>
+
+  <select id="queryById" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_pregnancy_archive a
+    where a.pregnancy_archive_id = #{id}
+  </select>
+
+  <select id="queryWifeCardNum" parameterType="map" resultMap="wifeResultMap">
+    select wife_cert_num,wife_name
+    from ${sourceName}.busi_pregnancy_archive
+    where pregnancy_archive_id = #{id}
+  </select>
+
+  <select id="queryHusbandCardNum" parameterType="map" resultMap="husbandResultMap">
+    select husband_cert_num,husband_name
+    from ${sourceName}.busi_pregnancy_archive
+    where pregnancy_archive_id = #{id}
+  </select>
+</mapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mongo="http://www.springframework.org/schema/data/mongo"  
+    xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans   
+       	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+		http://www.springframework.org/schema/context  
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+		http://www.springframework.org/schema/data/mongo  
+		http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"
+        >
+    <!-- 自动扫描(自动注入) -->
+    <context:component-scan base-package="com.foundation.mongo.dao" />
+    <!-- 开启注解 -->
+    <context:property-placeholder location="classpath:mongodb.properties" ignore-unresolvable="true"/>
+
+    <mongo:mongo-client host="${mongo.host}" port="${mongo.port}" id="mongo">
+        <mongo:client-options
+                connections-per-host="500"
+                threads-allowed-to-block-for-connection-multiplier="50"
+                connect-timeout="10000"
+                max-wait-time="25000"
+                socket-keep-alive="true"
+                socket-timeout="0"/>
+    </mongo:mongo-client>
+
+    <mongo:db-factory id="mongoDbFactory" dbname="${mongo.dbname}" mongo-ref="mongo" />    
+  
+    <!-- 只要使用这个调用相应的方法操作 -->  
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">    
+       <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />    
+    </bean>
+
+
+    <!--socket-timeout="30000"
+       connect-timeout="0"
+       connections-per-host="100"-->
+    <!-- spring连接mongodb数据库的配置
+         socket-timeout="30000"  套接字超时时间
+         connect-timeout="0"
+         connections-per-host="100"
+    -->
+
+</beans>

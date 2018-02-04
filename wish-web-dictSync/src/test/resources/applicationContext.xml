@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:config="http://canal.foundation.com/schema/canal" xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://canal.foundation.com/schema/canal
+       http://canal.foundation.com/schema/canal/canal.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+	   default-lazy-init="true">
+
+	<description> Spring公共配置文件</description>
+
+	<!-- 定义aspectj -->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	<!-- 扫描包 -->
+	<context:annotation-config/>
+	<context:component-scan base-package="com.foundation.service.*"/>
+	<context:component-scan base-package="com.foundation.dao.*"/>
+	<aop:config proxy-target-class="true"/>
+	<!-- 配置 JSR303 Bean Validator 定义 -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+	<!--初始化工具包里的springHolder-->
+	<bean id="springContextHolder" class="com.foundation.common.utils.SpringContextHolder" />
+	<bean id="globalCanalInvoke" class="com.foundation.service.canal.client.GlobalCanalInvoke"/>
+
+
+	<!--<config:canal-config
+			id="singleTestCanalClient2"
+			destination="example"
+			fetchSize="1"
+			host="192.168.1.55:11111" hostType="single"
+			>
+		&lt;!&ndash; 处理所有库的所有表IUD&ndash;&gt;
+		<config:globalInvoke ref="globalCanalInvoke"/>
+		<config:tableInvoke>
+			&lt;!&ndash; 指定数据库database,和表tableName 暂不支持通配符方式&ndash;&gt;
+			<config:invoke database="wish" tableName="test">
+				<config:bean ref="globalCanalInvoke"/>
+			</config:invoke>
+		</config:tableInvoke>
+	</config:canal-config>-->
+</beans>

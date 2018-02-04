@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:config="http://canal.foundation.com/schema/canal"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+       http://canal.foundation.com/schema/canal  http://canal.foundation.com/schema/canal/canal.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+       default-autowire="byName">
+
+    <!-- 定义aspectj -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <!-- 扫描包 -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.foundation.service.*"/>
+    <context:component-scan base-package="com.foundation.dao.*"/>
+    <aop:config proxy-target-class="true"/>
+    <!-- 配置 JSR303 Bean Validator 定义 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+    <!--初始化工具包里的springHolder-->
+    <bean id="springContextHolder" class="com.foundation.common.utils.SpringContextHolder" />
+    <bean id="globalCanalInvoke" class="com.foundation.service.canal.client.GlobalCanalInvoke"/>
+    <bean id="dictIndicatorSyncInvoke" class="com.foundation.service.canal.client.DictIndicatorSyncInvoke"/>
+
+    <config:canal-config
+            id="singleCanalClient"
+            destination="example"
+            fetchSize="1000"
+            host="10.100.103.19:2181" hostType="zkCluster">
+        <!-- 处理所有库的所有表IUD-->
+        <config:globalInvoke ref="globalCanalInvoke"/>
+        <config:tableInvoke>
+            <!-- 指定数据库database,和表tableName 暂不支持通配符方式-->
+            <config:invoke database="tjxt-base" tableName="dict_risk_factor_mapping">
+                <config:bean ref="dictIndicatorSyncInvoke"/>
+            </config:invoke>
+        </config:tableInvoke>
+    </config:canal-config>
+
+    <!-- 自己：192.168.88.129
+    开发环境：10.100.103.20
+    example
+    -->
+
+<!--     <config:canal-config
+            id="singleCanalClient"
+            destination="tj-172.18.100.97"
+            fetchSize="1000"
+            host="172.18.100.229:11111" hostType="single"> -->
+
+</beans>

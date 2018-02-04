@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source2.BusiHusbandGeneralSituationTwoDaoSync" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiHusbandGeneralSituation" >
+    <id column="husband_general_situation_id" property="husbandGeneralSituationId"  />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId"  />
+    <result column="check_no" property="checkNo"  />
+    <result column="inquiry_time" property="inquiryTime"  />
+    <result column="organization_id" property="organizationId"  />
+    <result column="user_id" property="userId"  />
+    <result column="iscomplete" property="iscomplete"  />
+    <result column="is_had_disease" property="isHadDisease"  />
+    <result column="suffered_disease" property="sufferedDisease"  />
+    <result column="other_disease" property="otherDisease"  />
+    <result column="is_birth_defect" property="isBirthDefect"  />
+    <result column="birth_defect" property="birthDefect"  />
+    <result column="is_andropathy" property="isAndropathy"  />
+    <result column="andropathy" property="andropathy"  />
+    <result column="other_andropathy" property="otherAndropathy"  />
+    <result column="is_take_medicine" property="isTakeMedicine"  />
+    <result column="medicine_name" property="medicineName"  />
+    <result column="is_vaccinated" property="isVaccinated"  />
+    <result column="vaccine" property="vaccine"  />
+    <result column="other_vaccine" property="otherVaccine"  />
+    <result column="is_family_close_relative" property="isFamilyCloseRelative"  />
+    <result column="family_relationship" property="familyRelationship"  />
+    <result column="is_family_disease" property="isFamilyDisease"  />
+    <result column="family_disease" property="familyDisease"  />
+    <result column="other_family_disease" property="otherFamilyDisease"  />
+    <result column="relationship" property="relationship"  />
+    <result column="is_eat_meat_egg" property="isEatMeatEgg"  />
+    <result column="is_anorexia_vegetables" property="isAnorexiaVegetables"  />
+    <result column="is_eat_raw_meat" property="isEatRawMeat"  />
+    <result column="is_somke" property="isSomke"  />
+    <result column="daily_somke_number" property="dailySomkeNumber"  />
+    <result column="is_passive_smoking" property="isPassiveSmoking"  />
+    <result column="daily_passive_smoking_minutes" property="dailyPassiveSmokingMinutes"  />
+    <result column="is_drink" property="isDrink"  />
+    <result column="daily_drink_volumn" property="dailyDrinkVolumn"  />
+    <result column="is_take_drug" property="isTakeDrug"  />
+    <result column="drug_name" property="drugName"  />
+    <result column="is_halitosis" property="isHalitosis"  />
+    <result column="is_bleeding_gums" property="isBleedingGums"  />
+    <result column="is_harmful_environment" property="isHarmfulEnvironment"  />
+    <result column="harmful_environment" property="harmfulEnvironment"  />
+    <result column="other_harmful_environment" property="otherHarmfulEnvironment"  />
+    <result column="is_pressure" property="isPressure"  />
+    <result column="is_relationship_tense" property="isRelationshipTense"  />
+    <result column="is_economic_pressure" property="isEconomicPressure"  />
+    <result column="is_prepare_pregnancy" property="isPreparePregnancy"  />
+    <result column="other" property="other"  />
+    <result column="create_user_id" property="createUserId"  />
+    <result column="create_datetime" property="createDatetime"  />
+    <result column="update_user_id" property="updateUserId"  />
+    <result column="update_datetime" property="updateDatetime"  />
+    <result column="isdelete" property="isdelete"  />
+    <result column="husband_cert_num" property="certNum"  />
+    <result column="husband_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.husband_general_situation_id, a.pregnancy_archive_id, a.check_no, a.inquiry_time, a.organization_id,
+    a.user_id, a.iscomplete, a.is_had_disease, a.suffered_disease, a.other_disease, a.is_birth_defect,
+    a.birth_defect, a.is_andropathy, a.andropathy, a.other_andropathy, a.is_take_medicine, a.medicine_name,
+    a.is_vaccinated, a.vaccine, a.other_vaccine, a.is_family_close_relative, a.family_relationship,
+    a.is_family_disease, a.family_disease, a.other_family_disease, a.relationship, a.is_eat_meat_egg,
+    a.is_anorexia_vegetables, a.is_eat_raw_meat, a.is_somke, a.daily_somke_number, a.is_passive_smoking,
+    a.daily_passive_smoking_minutes, a.is_drink, a.daily_drink_volumn, a.is_take_drug, a.drug_name,
+    a.is_halitosis, a.is_bleeding_gums, a.is_harmful_environment, a.harmful_environment, a.other_harmful_environment,
+    a.is_pressure, a.is_relationship_tense, a.is_economic_pressure, a.is_prepare_pregnancy, a.other,
+    a.create_user_id, a.create_datetime, a.update_user_id, a.update_datetime, a.isdelete,b.husband_cert_num,b.husband_name ,b.zone_province_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_husband_general_situation a ,${sourceName}.busi_pregnancy_archive b
+    where a.pregnancy_archive_id = b.pregnancy_archive_id AND a.husband_general_situation_id = #{id,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

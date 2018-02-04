@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.foundation.dao.modules.sync.source2.BusiWifePhysicalExamTwoDaoSync" >
+  <resultMap id="BaseResultMap" type="com.foundation.dao.entity.sync.BusiWifePhysicalExam" >
+    <id column="wife_physical_exam_id" property="wifePhysicalExamId" />
+    <result column="pregnancy_archive_id" property="pregnancyArchiveId" />
+    <result column="check_no" property="checkNo" />
+    <result column="inquiry_time" property="inquiryTime" />
+    <result column="organization_id" property="organizationId" />
+    <result column="user_id" property="userId" />
+    <result column="iscomplete" property="iscomplete"  />
+    <result column="height" property="height" jdbcType="REAL" />
+    <result column="weight" property="weight" jdbcType="REAL" />
+    <result column="bmi" property="bmi" jdbcType="REAL" />
+    <result column="heart_rate" property="heartRate" jdbcType="SMALLINT" />
+    <result column="systolic_pressure" property="systolicPressure" jdbcType="SMALLINT" />
+    <result column="diastolic_pressure" property="diastolicPressure" jdbcType="SMALLINT" />
+    <result column="is_psychosis" property="isPsychosis"  />
+    <result column="psychosis_detail" property="psychosisDetail" />
+    <result column="is_intelligence" property="isIntelligence"  />
+    <result column="intelligence" property="intelligence"  />
+    <result column="is_facial" property="isFacial"  />
+    <result column="facial_detail" property="facialDetail" />
+    <result column="is_special_body" property="isSpecialBody"  />
+    <result column="special_body_detail" property="specialBodyDetail" />
+    <result column="is_unusual_facies" property="isUnusualFacies"  />
+    <result column="unusual_facies_detail" property="unusualFaciesDetail" />
+    <result column="is_skin_hair" property="isSkinHair"  />
+    <result column="skin_hair_detail" property="skinHairDetail" />
+    <result column="is_thyroid" property="isThyroid"  />
+    <result column="thyroid_detail" property="thyroidDetail" />
+    <result column="is_lungs" property="isLungs"  />
+    <result column="lungs_detail" property="lungsDetail" />
+    <result column="is_regular_rhythm" property="isRegularRhythm"  />
+    <result column="rhythm_detail" property="rhythmDetail" />
+    <result column="is_cardiac_souffle" property="isCardiacSouffle"  />
+    <result column="cardiac_souffle_detail" property="cardiacSouffleDetail" />
+    <result column="is_liver_spleen" property="isLiverSpleen"  />
+    <result column="liver_spleen_detail" property="liverSpleenDetail" />
+    <result column="is_limb_spine" property="isLimbSpine"  />
+    <result column="limb_spine_detail" property="limbSpineDetail" />
+    <result column="other_anomalies" property="otherAnomalies" />
+    <result column="create_user_id" property="createUserId" />
+    <result column="create_datetime" property="createDatetime" />
+    <result column="update_user_id" property="updateUserId" />
+    <result column="update_datetime" property="updateDatetime" />
+    <result column="isdelete" property="isdelete"  />
+    <result column="common" property="common"  />
+    <result column="judge" property="judge"  />
+    <result column="memory" property="memory"  />
+    <result column="gene" property="gene"  />
+    <result column="wife_cert_num" property="certNum"  />
+    <result column="wife_name" property="certName"  />
+    <result column="zone_province_code" property="zoneProvinceCode"  />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    a.wife_physical_exam_id, a.pregnancy_archive_id, a.check_no, a.inquiry_time, a.organization_id, a.
+    user_id, a.iscomplete, a.height, a.weight, a.bmi, a.heart_rate, a.systolic_pressure, a.diastolic_pressure, a.
+    is_psychosis, a.psychosis_detail, a.is_intelligence, a.intelligence, a.is_facial, a.facial_detail, a.
+    is_special_body, a.special_body_detail, a.is_unusual_facies, a.unusual_facies_detail, a.is_skin_hair, a.
+    skin_hair_detail, a.is_thyroid, a.thyroid_detail, a.is_lungs, a.lungs_detail, a.is_regular_rhythm, a.
+    rhythm_detail, a.is_cardiac_souffle, a.cardiac_souffle_detail, a.is_liver_spleen, a.liver_spleen_detail, a.
+    is_limb_spine, a.limb_spine_detail, a.other_anomalies, a.create_user_id, a.create_datetime, a.
+    update_user_id, a.update_datetime, a.isdelete, a.common, a.judge, a.memory, a.gene ,b.wife_cert_num ,b.wife_name ,b.zone_province_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from ${sourceName}.busi_wife_physical_exam a,${sourceName}.busi_pregnancy_archive b
+    where  a.pregnancy_archive_id = b.pregnancy_archive_id AND a.wife_physical_exam_id = #{id,jdbcType=VARCHAR}
+  </select>
+</mapper>
